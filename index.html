@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f5">
+  <title>A Little Surprise For You ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="hearts" id="hearts"></div>
+
+  <!-- SCREEN 1: ENVELOPE -->
+  <main class="screen active" id="screen1">
+    <div class="intro-card">
+      <div class="sparkle">✨ 💌 ✨</div>
+      <div class="envelope" aria-hidden="true">💌</div>
+      <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+      <h1>Hey, Beautiful! <span>💕</span></h1>
+      <p class="description">
+        I have prepared something special just for you.
+        Are you ready to see it?
+      </p>
+      <button class="primary-btn" onclick="startSurprise()">
+        Open Your Surprise <span>♡</span>
+      </button>
+      <p class="tiny-note">Made with lots of love, just for you.</p>
+    </div>
+  </main>
+
+  <!-- SCREEN 2: LIGHTS -->
+  <section class="screen dark-screen" id="screen2">
+    <div class="stars"></div>
+    <div class="scene-content">
+      <div class="bulb" id="bulb">💡</div>
+      <p class="eyebrow">BEFORE WE BEGIN...</p>
+      <h1>A little darkness<br>before the magic ✨</h1>
+      <p>Our birthday room is waiting for you.</p>
+      <button class="primary-btn" onclick="turnOnLights()">
+        Turn On The Lights ✨
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: BIRTHDAY ROOM -->
+  <section class="screen room-screen" id="screen3">
+    <div class="balloons" aria-hidden="true">
+      <span>🎈</span><span>🎈</span><span>🎈</span>
+      <span>🎈</span><span>🎈</span><span>🎈</span>
+    </div>
+    <div class="room-content">
+      <p class="eyebrow">TODAY IS ALL ABOUT YOU</p>
+      <h1>Happy Birthday,<br><span class="her-name">My Princess</span>! 🎂</h1>
+      <p class="description">
+        Today the world became more beautiful because you were born.
+        And I am so lucky to have you in my life. ❤️
+      </p>
+      <div class="birthday-decor">🧸 🎁 🌷 🎁 🧸</div>
+      <button class="primary-btn" onclick="showScreen(4)">
+        There's More For You 💗
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 4: CAKE -->
+  <section class="screen cake-screen" id="screen4">
+    <div class="content-card">
+      <p class="eyebrow">MAKE A WISH, BIRTHDAY GIRL</p>
+      <h1>A Cake Just For You 🎂</h1>
+      <p>Tap the cake to cut it, then make your birthday wish!</p>
+
+
+      <button class="cake" id="cake" onclick="cutCake()" aria-label="Cut the birthday cake">
+        <span class="candle" id="candle">🕯️</span>
+
+        <span class="cake-pieces">
+          <span class="cake-half left-half">
+            <span class="cake-top">🍓</span>
+            <span class="cake-layer layer-one"></span>
+            <span class="cake-layer layer-two"></span>
+          </span>
+
+          <span class="cake-half right-half">
+            <span class="cake-top">🍓</span>
+            <span class="cake-layer layer-one"></span>
+            <span class="cake-layer layer-two"></span>
+          </span>
+        </span>
+
+        <span class="cake-plate"></span>
+      </button>
+      <p id="cakeMessage" class="feedback">Make a wish and tap the cake! 💕</p>
+      <button class="primary-btn hidden" id="wishButton" onclick="makeWish()">
+        Make A Wish ✨
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 5: WISH -->
+  <section class="screen wish-screen" id="screen5">
+    <div class="wish-card">
+      <div class="wish-icon">🌙 ✨ ⭐</div>
+      <h1>Close Your Eyes...</h1>
+      <p class="description">
+        Take a deep breath, make your most beautiful wish,
+        and remember that you deserve every bit of happiness in this world.
+      </p>
+      <button class="primary-btn" onclick="revealWish()">
+        My Wish Is Ready 💫
+      </button>
+      <p id="wishMessage" class="feedback"></p>
+      <button class="secondary-btn hidden" id="memoriesButton" onclick="showScreen(6)">
+        Let's Look At Our Memories 📸
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 6: PHOTO MEMORIES -->
+  <section class="screen memories-screen" id="screen6">
+    <div class="memories-container">
+      <p class="eyebrow">LITTLE MOMENTS, BIG FEELINGS</p>
+      <h1>Our Little World 📸</h1>
+      <p class="description">Some moments deserve to live forever.</p>
+
+      <div class="photo-grid">
+        <figure class="memory">
+          <img src="assets/photo1.jpg" alt="Our special memory"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <div class="photo-placeholder">📷<small>Add photo1.jpg</small></div>
+          <figcaption>One of my favourite moments ❤️</figcaption>
+        </figure>
+
+        <figure class="memory">
+          <img src="assets/photo2.jpg" alt="A happy memory together"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <div class="photo-placeholder">🌷<small>Add photo2.jpg</small></div>
+          <figcaption>A memory I will always treasure.</figcaption>
+        </figure>
+
+        <figure class="memory">
+          <img src="assets/photo3.jpg" alt="A beautiful memory"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <div class="photo-placeholder">💗<small>Add photo3.jpg</small></div>
+          <figcaption>You make ordinary moments special.</figcaption>
+        </figure>
+
+        <figure class="memory">
+          <img src="assets/photo4.jpg" alt="Another special memory"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <div class="photo-placeholder">✨<small>Add photo4.jpg</small></div>
+          <figcaption>And I hope we make many more.</figcaption>
+        </figure>
+      </div>
+
+      <button class="primary-btn" onclick="showScreen(7)">
+        One Last Thing... 💌
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 7: LOVE LETTER -->
+  <section class="screen letter-screen" id="screen7">
+    <div class="letter">
+      <div class="letter-decoration">💌</div>
+      <p class="eyebrow">JUST BETWEEN YOU AND ME</p>
+      <h1>A Letter For You</h1>
+      <p>My favourite person,</p>
+      <p>
+        Happy Birthday, my love. ❤️
+        I wish I could put into words how special you are to me.
+        Your smile can make my hardest days better, and your presence
+        makes even the simplest moments feel magical.
+      </p>
+      <p>
+        On your birthday, I wish you endless happiness, beautiful
+        opportunities, good health, and all the love your heart can hold.
+        Never forget how precious you are.
+      </p>
+      <p>
+        Thank you for being you. I hope this little surprise brings
+        a smile to your face, just as you bring smiles to mine.
+      </p>
+      <p class="signature">Always wishing the best for you, ❤️<br>
+        <strong>Your Favourite Person</strong>
+      </p>
+      <button class="primary-btn" onclick="showScreen(8)">
+        Open Your Final Surprise 🎁
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 8: FINAL SURPRISE -->
+  <section class="screen final-screen" id="screen8">
+    <div class="final-content">
+      <div class="final-emojis">🎉 💖 🎂 💖 🎉</div>
+      <p class="eyebrow">AND BEFORE YOU GO...</p>
+      <h1>Happy Birthday,<br><span class="her-name">My Princess</span>! ❤️</h1>
+      <p class="description">
+        May this new chapter bring you countless reasons to smile,
+        dreams that come true, and memories worth keeping forever.
+      </p>
+      <div class="big-heart">💗</div>
+      <p class="final-note">You are loved more than words can say.</p>
+      <button class="primary-btn" onclick="celebrateAgain()">
+        One More Hug? 🤗
+      </button>
+      <p class="tiny-note">Made with love, especially for you. ♡</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
